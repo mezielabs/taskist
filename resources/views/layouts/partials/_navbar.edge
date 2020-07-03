@@ -1,0 +1,35 @@
+<nav class="navbar is-link">
+  <div class="container">
+    <div class="navbar-brand">
+      <a href="/" class="navbar-item">Taskist</a>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-end">
+        @if(auth.isLoggedIn)
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">{{ auth.user.name }}</a>
+            <div class="navbar-dropdown">
+              <a
+                href="/logout"
+                class="navbar-item"
+                onclick="event.preventDefault(); document.getElementById('logout').submit();"
+              >
+                <span class="icon">
+                  <i class="fas fa-sign-out-alt"></i>
+                </span>
+                <span>Logout</span>
+                <form id="logout" action="/logout" method="post">
+                  {{ csrfField() }}
+                </form>
+              </a>
+            </div>
+          </div>
+        @else
+          <a href="/register" class="navbar-item">Register</a>
+          <a href="/login" class="navbar-item">Login</a>
+        @endif
+      </div>
+    </div>
+  </div>
+</nav>
