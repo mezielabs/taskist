@@ -1,5 +1,14 @@
 {
   "extends": [
-    "plugin:adonis/typescriptApp"
-  ]
+    "plugin:adonis/typescriptApp",
+    "prettier"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error"
+    ]
+  }
 }

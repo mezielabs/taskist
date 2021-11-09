@@ -43,20 +43,7 @@ export const csp: ShieldConfig['csp'] = {
   | }
   |
   */
-  directives: {
-  },
-
-  /*
-  |--------------------------------------------------------------------------
-  | Loose Mode
-  |--------------------------------------------------------------------------
-  |
-  | This module will detect common mistakes in your directives and throw
-  | errors if it finds any. To disable this, set the following following
-  | to `true`.
-  |
-  */
-  loose: false,
+  directives: {},
 
   /*
   |--------------------------------------------------------------------------
@@ -68,33 +55,6 @@ export const csp: ShieldConfig['csp'] = {
   |
   */
   reportOnly: false,
-
-  /*
-  |--------------------------------------------------------------------------
-  | Set all headers
-  |--------------------------------------------------------------------------
-  |
-  | Headers staring with `X` have been depreciated, since all major browsers
-  | supports the standard CSP header. So its better to disable deperciated
-  | headers, unless you want them to be set.
-  |
-  */
-  setAllHeaders: false,
-
-  /*
-  |--------------------------------------------------------------------------
-  | Disable on android
-  |--------------------------------------------------------------------------
-  |
-  | Certain versions of android are buggy with CSP policy. So you can set
-  | this value to true, to disable it for Android versions with buggy
-  | behavior.
-  |
-  | Here is an issue reported on a different package, but helpful to read
-  | if you want to know the behavior. https://github.com/helmetjs/helmet/pull/82
-  |
-  */
-  disableAndroid: true,
 }
 
 /*
@@ -153,23 +113,6 @@ export const csrf: ShieldConfig['csrf'] = {
   |
   */
   methods: ['POST', 'PUT', 'PATCH', 'DELETE'],
-}
-
-/*
-|--------------------------------------------------------------------------
-| No Open
-|--------------------------------------------------------------------------
-|
-| This will prevent old versions of Internet Explorer from allowing
-| malicious HTML downloads to be executed in the context of your
-| site.
-|
-| By default, the security header is disabled, since not many websites are
-| running on ie8 these days.
-|
-*/
-export const noOpen: ShieldConfig['noOpen'] = {
-  enabled: false,
 }
 
 /*
@@ -285,20 +228,4 @@ export const hsts: ShieldConfig['hsts'] = {
 */
 export const contentTypeSniffing: ShieldConfig['contentTypeSniffing'] = {
   enabled: true,
-}
-
-/*
-|--------------------------------------------------------------------------
-| X-XSS-Protection
-|--------------------------------------------------------------------------
-|
-| X-XSS Protection saves applications from XSS attacks. It was adopted
-| by IE and later followed by some other browsers.
-|
-| Learn more at https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection
-*/
-export const xss: ShieldConfig['xss'] = {
-  enabled: true,
-  enableOnOldIE: false,
-  mode: 'block',
 }

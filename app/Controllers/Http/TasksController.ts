@@ -3,18 +3,16 @@ import { rules, schema } from '@ioc:Adonis/Core/Validator'
 import Task from 'App/Models/Task'
 
 export default class TasksController {
-  public async index ({ view, auth }: HttpContextContract) {
+  public async index({ view, auth }: HttpContextContract) {
     const user = auth.user
-    await user?.preload('tasks')
+    await user?.load('tasks')
 
     return view.render('tasks/index', { tasks: user?.tasks })
   }
 
-  public async store ({ request, response, session, auth }: HttpContextContract) {
+  public async store({ request, response, session, auth }: HttpContextContract) {
     const validationSchema = schema.create({
-      title: schema.string({ trim: true }, [
-        rules.maxLength(255),
-      ]),
+      title: schema.string({ trim: true }, [rules.maxLength(255)]),
     })
 
     const validatedData = await request.validate({
@@ -34,7 +32,7 @@ export default class TasksController {
     return response.redirect('back')
   }
 
-  public async update ({ request, response, session, params }: HttpContextContract) {
+  public async update({ request, response, session, params }: HttpContextContract) {
     const task = await Task.findOrFail(params.id)
 
     task.isCompleted = !!request.input('completed')
@@ -45,7 +43,7 @@ export default class TasksController {
     return response.redirect('back')
   }
 
-  public async destroy ({ params, session, response }: HttpContextContract) {
+  public async destroy({ params, session, response }: HttpContextContract) {
     const task = await Task.findOrFail(params.id)
 
     await task.delete()

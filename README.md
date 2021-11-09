@@ -25,12 +25,6 @@ Duplicate `.env.example`:
 cp env.example .env
 ```
 
-Build the application:
-
-```bash
-node ace build
-```
-
 Generate `APP_KEY`:
 
 ```bash
@@ -46,19 +40,13 @@ Update environment variables:
 
 APP_KEY=YOUR_GENERATED_KEY_COPIED_FROM_ABOVE
 DB_CONNECTION=mysql
-DB_HOST=localhost
-DB_NAME=taskist
-DB_USER=YOUR_DATABASE_USERNAME
-DB_PASSWORD=YOUR_DATABASE_PASSWORD
+MYSQL_HOST=localhost
+MYSQL_USER=YOUR_DATABASE_USERNAME
+MYSQL_PASSWORD=YOUR_DATABASE_PASSWORD
+MYSQL_DB_NAME=taskist
 ```
 
 > Remember to update `YOUR_DATABASE_USERNAME` and `YOUR_DATABASE_PASSWORD` with your database details.
-
-Rebuild the application:
-
-```bash
-node ace build
-```
 
 Run the migrations:
 
@@ -76,4 +64,4 @@ and visit [http://0.0.0.0:3333](http://0.0.0.0:3333) to see the application in a
 
 ## Learn AdonisJS
 
-Want to learn how to build projects like this with AdonisJS? Checkout [Adonis Mastery](https://adonismastery.com), where you get to learn AdonisJS through practical screencasts.
+Want to learn how to build projects like this with AdonisJS? Check out [Adonis Mastery](https://adonismastery.com), where you get to learn AdonisJS through practical screencasts.
