@@ -22,7 +22,7 @@ npm install
 Duplicate `.env.example`:
 
 ```bash
-cp env.example .env
+cp .env.example .env
 ```
 
 Generate `APP_KEY`:
@@ -41,6 +41,7 @@ Update environment variables:
 APP_KEY=YOUR_GENERATED_KEY_COPIED_FROM_ABOVE
 DB_CONNECTION=mysql
 MYSQL_HOST=localhost
+MYSQL_PORT=3306
 MYSQL_USER=YOUR_DATABASE_USERNAME
 MYSQL_PASSWORD=YOUR_DATABASE_PASSWORD
 MYSQL_DB_NAME=taskist
